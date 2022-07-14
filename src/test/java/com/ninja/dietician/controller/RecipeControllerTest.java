@@ -76,7 +76,7 @@ public class RecipeControllerTest {
 	  
 	  @DisplayName("test to get recipes by recipeIngredient")
 	  @Test
-	  void testGetMorbidityByName() throws Exception {
+	  void testGetRecipeByIngredient() throws Exception {
 	    //given 
 	    given(recipeService.getRecipeByIngredient("Ajwain"))
 	      .willReturn(recipeList);
