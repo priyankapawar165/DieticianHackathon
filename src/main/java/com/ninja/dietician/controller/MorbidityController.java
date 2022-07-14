@@ -1,5 +1,7 @@
 package com.ninja.dietician.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +27,7 @@ public class MorbidityController {
 	
 
 	@GetMapping("/morbidity")
-	public <T> ResponseEntity<PaginatedScanList<Object>> getAllMorbidties() {
+	public ResponseEntity<List<Morbidity> > getAllMorbidties() {
 		return ResponseEntity.ok(service.getMorbidities());
 	}
 

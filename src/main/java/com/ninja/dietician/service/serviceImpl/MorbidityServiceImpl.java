@@ -18,7 +18,7 @@ public class MorbidityServiceImpl implements MorbidityService {
 	MorbidityRepository morbiditySaveRepository;
 
 	@Override
-	public PaginatedScanList<Object> getMorbidities() {
+	public List<Morbidity> getMorbidities() {
 		return morbiditySaveRepository.getMorbidity();
 	}
 
