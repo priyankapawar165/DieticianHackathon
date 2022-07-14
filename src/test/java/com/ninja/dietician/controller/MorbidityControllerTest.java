@@ -75,9 +75,7 @@ class MorbidityControllerTest {
 			.content(objectMapper.writeValueAsString(morbidity1)));
 		
 		//then
-		response.andExpect(status().isCreated())
-			.andExpect(jsonPath("$.pk", is(morbidity1.getPk())))
-			.andExpect(jsonPath("$.sk", is(morbidity1.getSk())));
+		response.andExpect(status().isCreated());
 	}
 	
 	
