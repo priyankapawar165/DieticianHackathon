@@ -48,7 +48,7 @@ public class DynamoDBConfig {
 	}
 
 	
-	@Bean
+	//@Bean
 	public DynamoDBMapper mapper() {
 		return new DynamoDBMapper(amazonDynamoDB());
 	}
