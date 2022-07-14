@@ -11,7 +11,7 @@ public class UserIDGenerator {
 	
 	public String generateUserId(String type) {
 		
-		int nextVal = random.nextInt(1000,999999);
+		int nextVal = random.nextInt();
 		if(type.equalsIgnoreCase("PATIENT"))
 			return "PT"+nextVal;
 		else
