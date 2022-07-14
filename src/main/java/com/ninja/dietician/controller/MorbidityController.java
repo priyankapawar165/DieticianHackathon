@@ -3,6 +3,7 @@ package com.ninja.dietician.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.ninja.dietician.entity.Morbidity;
 import com.ninja.dietician.service.MorbidityService;
 
@@ -33,7 +33,9 @@ public class MorbidityController {
 
 	@PostMapping("/morbidity")
 	public ResponseEntity<Morbidity> postBody(@RequestBody Morbidity morbidity) {
-		return ResponseEntity.ok(service.addMorbidity(morbidity));
+		Morbidity createdMorbidity =  service.addMorbidity(morbidity);
+		return new ResponseEntity<>(createdMorbidity, HttpStatus.CREATED);
+		//return ResponseEntity.ok(service.addMorbidity(morbidity));
 
 	}
 
@@ -56,8 +58,7 @@ public class MorbidityController {
 	
 
 	@GetMapping("/getMorbiditybyMorbidityTestId/{morbidityTestId}")
-	public ResponseEntity<Object> getMorbiditybyMorbidityTestId( @PathVariable("morbidityTestId") String morbidityTestId,
-			@RequestBody Morbidity morbidity) {
+	public ResponseEntity<Object> getMorbiditybyMorbidityTestId( @PathVariable("morbidityTestId") String morbidityTestId) {
 		return ResponseEntity.ok(service.getMorbiditybyMorbidityTestId( morbidityTestId));
 	}
 
