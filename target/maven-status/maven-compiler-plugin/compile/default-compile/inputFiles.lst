@@ -1,0 +1,8 @@
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/controller/MorbidityController.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/config/DynamoDBConfig.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/DieticianHackathonApplication.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/entity/DietProjectTableId.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/repositories/MorbidityRepository.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/service/MorbidityService.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/entity/Morbidity.java
+/Users/priya/study-priya/java/DieticianHackathon/DieticianHackathon/src/main/java/com/ninja/dietician/service/serviceImpl/MorbidityServiceImpl.java
