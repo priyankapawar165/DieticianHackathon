@@ -1,5 +1,7 @@
 package com.ninja.dietician.service;
 
+import java.util.List;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.ninja.dietician.entity.Morbidity;
 
@@ -8,7 +10,7 @@ public interface MorbidityService {
 
 	public Morbidity addMorbidity(Morbidity morbidity);
 
-	public PaginatedScanList<Object> getMorbidities();
+	public List<Morbidity>  getMorbidities();
 
 	public String deleteMorbidities(String pk, String sk);
 

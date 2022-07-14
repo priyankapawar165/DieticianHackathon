@@ -1,5 +1,6 @@
 package com.ninja.dietician.repositories;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,8 +25,11 @@ public class MorbidityRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T> PaginatedScanList<T> getMorbidity() {
-		return (PaginatedScanList<T>) mapper.scan(Morbidity.class, new DynamoDBScanExpression());
+	public List getMorbidity() {
+		List<Morbidity> list = new ArrayList();
+		list = mapper.scan(Morbidity.class, new DynamoDBScanExpression());
+		return list;
+		//return (PaginatedScanList<T>) mapper.scan(Morbidity.class, new DynamoDBScanExpression());
 	}
 
 	public void deleteMorbidities(String morbidityName, String morbidityTestId) {
