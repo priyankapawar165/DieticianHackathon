@@ -19,19 +19,10 @@ public class MorbidityServiceImpl implements MorbidityService {
 
 	@Autowired
 	MorbidityRepository morbiditySaveRepository;
-	
-	private String infoType = "Morbidity";
 
 	@Override
 	public List<Morbidity> getMorbidities() {
-		HashMap<String, AttributeValue> eav1 = new HashMap<String, AttributeValue>();
-		eav1.put(":v1", new AttributeValue().withS(infoType));
-
-		DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-				// Filter Expression
-				.withFilterExpression("InfoType = :v1 ").withExpressionAttributeValues(eav1);
-
-		return morbiditySaveRepository.findAll(scanExpression);
+		return morbiditySaveRepository.findAll();
 	}
 
 	@Override
@@ -99,12 +90,10 @@ public class MorbidityServiceImpl implements MorbidityService {
 
 		HashMap<String, AttributeValue> eav1 = new HashMap<String, AttributeValue>();
 		eav1.put(":v1", new AttributeValue().withS(morbidityName));
-		eav1.put(":v2", new AttributeValue().withS(infoType));
 
 		DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
 				// Filter Expression
-				.withFilterExpression("MorbidityName = :v1 and InfoType = :v2")
-				.withExpressionAttributeValues(eav1);
+				.withFilterExpression("MorbidityName = :v1 ").withExpressionAttributeValues(eav1);
 
 		return this.morbiditySaveRepository.getMorbiditybyName(scanExpression);
 	}
@@ -114,12 +103,10 @@ public class MorbidityServiceImpl implements MorbidityService {
 
 		HashMap<String, AttributeValue> eav1 = new HashMap<String, AttributeValue>();
 		eav1.put(":v1", new AttributeValue().withS(morbidityTestId));
-		eav1.put(":v2", new AttributeValue().withS(infoType));
 
 		DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
 				// Filter Expression
-				.withFilterExpression(" MorbidityTestId = :v1 and InfoType = :v2")
-				.withExpressionAttributeValues(eav1);
+				.withFilterExpression(" MorbidityTestId = :v1").withExpressionAttributeValues(eav1);
 		return this.morbiditySaveRepository.getMorbiditybyMorbidityTestId(scanExpression);
 	}
 
