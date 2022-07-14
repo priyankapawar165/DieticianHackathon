@@ -16,8 +16,8 @@ public class MorbidityRepository {
 	@Autowired
 	private DynamoDBMapper mapper;
 
-	public List<Morbidity> findAll() {
-		return mapper.scan(Morbidity.class, new DynamoDBScanExpression());
+	public List<Morbidity> findAll(DynamoDBScanExpression scanExpression) {
+		return mapper.scan(Morbidity.class, scanExpression);
 	}
 
 	public void addMorbidity(Morbidity user) {
