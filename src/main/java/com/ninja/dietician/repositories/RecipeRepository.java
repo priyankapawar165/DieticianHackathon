@@ -19,7 +19,7 @@ import com.ninja.dietician.entity.Recipe;
 public class RecipeRepository {
 
 	@Autowired
-	private DynamoDBMapper dynamoDBMapper;
+	private DynamoDBMapper mapper;
 
 	
 	public List<Recipe> findAll() {
@@ -34,7 +34,7 @@ public class RecipeRepository {
 				.withFilterExpression("InfoType = :v1 ")
 				.withExpressionAttributeValues(eav1);
 		
-		return dynamoDBMapper.scan(Recipe.class, scanExpression);
+		return mapper.scan(Recipe.class, scanExpression);
 	
 		
 	}
@@ -51,7 +51,7 @@ public class RecipeRepository {
 				.withFilterExpression("RecipeFoodCategory = :v1 ")
 				.withExpressionAttributeValues(eav);
 		
-		List<Recipe> recipeListByFoodCategory = dynamoDBMapper.scan(Recipe.class, scanExpression);
+		List<Recipe> recipeListByFoodCategory = mapper.scan(Recipe.class, scanExpression);
 		
 		return recipeListByFoodCategory;
 		
@@ -68,7 +68,7 @@ public class RecipeRepository {
 				.withFilterExpression("RecipeType = :v1 ")
 				.withExpressionAttributeValues(eav2);
 
-		List<Recipe> recipeListByRecipeType = dynamoDBMapper.scan(Recipe.class, scanExpression);
+		List<Recipe> recipeListByRecipeType = mapper.scan(Recipe.class, scanExpression);
 		
 		return recipeListByRecipeType;
 	}
@@ -82,7 +82,7 @@ public class RecipeRepository {
 	      .withFilterExpression("contains(RecipeNutrient,:v1)")    
 	        .withExpressionAttributeValues(eav1);
 
-	      List<Recipe> recipeList = dynamoDBMapper.scan(Recipe.class, scanExpression);
+	      List<Recipe> recipeList = mapper.scan(Recipe.class, scanExpression);
 	      
 	      return recipeList;
 	     }
@@ -95,7 +95,7 @@ public class RecipeRepository {
 	      .withFilterExpression("contains(RecipeIngredient,:v1)")        
 	        .withExpressionAttributeValues(eav1);
 
-	      List<Recipe> recipeList = dynamoDBMapper.scan(Recipe.class, scanExpression);
+	      List<Recipe> recipeList = mapper.scan(Recipe.class, scanExpression);
 	      
 	      return recipeList;
 	     }
