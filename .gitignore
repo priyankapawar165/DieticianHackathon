@@ -34,3 +34,8 @@ build/
 
 .metadata
 bin/*
+
+.classpath
+.project
+.settings/
+/target/**
