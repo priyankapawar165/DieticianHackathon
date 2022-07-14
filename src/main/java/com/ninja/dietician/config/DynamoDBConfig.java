@@ -47,6 +47,7 @@ public class DynamoDBConfig {
 				.withCredentials(amazonAWSCredentialsProvider()).build();
 	}
 
+	
 	@Bean
 	public DynamoDBMapper mapper() {
 		return new DynamoDBMapper(amazonDynamoDB());
